@@ -4,6 +4,156 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+ </head>
+ <body>
+    
+ </body>
+ </html>
+ <!---<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            outline: none;
+        }
+        .con{
+            width: 100%;
+            height: 100vh;
+            background-color: bisque;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .cal{
+            width: 30%;
+            height: 200px;
+            background-color:cadetblue;
+            border: 3px solid gray;
+        }
+        .disp{
+            height: 40px;
+            width: 100%;
+        }
+        .disp input{
+            border: none;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: black;
+            color: white;
+            text-align: right;
+            padding: 0px 5px;
+        }
+        .pnl{
+            height: 160px;
+            width: 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 3px;
+            padding: 2px;
+            box-sizing: border-box;
+        }
+        button{
+            background-color: gray;
+            color: white;
+            font-size: 17px;
+            box-shadow: 0px 0px 2px 2px black;
+        }
+    </style>
+ </head>
+ <body>
+    <div class="con">
+        <div class="cal">
+            <div class="disp">
+                <input type="text" readonly/>
+            </div>
+            <div class="pnl">
+                <button onclick="fun('ac')">AC</button>
+                <button onclick="fun('c')">C</button>
+                <button onclick="fun('*')">*</button>
+                <button onclick="fun('/')">/</button>
+                <button onclick="fun('1')">1</button>
+                <button onclick="fun('2')">2</button>
+                <button onclick="fun('3')">3</button>
+                <button onclick="fun('-')">-</button>
+                <button onclick="fun('4')">4</button>
+                <button onclick="fun('5')">5</button>
+                <button onclick="fun('6')">6</button>
+                <button onclick="fun('%')">%</button>
+                <button onclick="fun('7')">7</button>
+                <button onclick="fun('8')">8</button>
+                <button onclick="fun('9')">9</button>
+                <button onclick="fun('+')">+</button>
+                <button onclick="fun('0')">0</button>
+                <button onclick="fun('00')">00</button>
+                <button onclick="fun('.')">.</button>
+                <button onclick="fun('=')">=</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let r=document.querySelector("input"),s=""
+        function fun(ch){
+            if(ch=='ac'){
+                s=""
+                r.value=""
+            }
+            else if(ch=="c"){
+                s=s.slice(0,s.length-1)
+                r.value=s
+            }
+            else if(ch=="="){
+                r.value=eval(s)
+                s=""
+            }
+            else{
+                s=s+ch
+                r.value=s
+            }
+        }
+    </script>
+ </body>
+ </html>--->
+ <!---<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <h2>0</h2>
+    <button onclick="inc()">inc</button>
+    <button onclick="dec()">dec</button>
+    <button onclick="reset()">reset</button>
+    <script>
+        let c=0,r=document.getElementsByTagName("h2")[0]
+        function inc(){
+            c++
+            r.innerHTML=c
+        }
+        function dec(){
+            c--
+            r.innerHTML=c
+        }
+        function reset(){
+            c=0
+            r.innerHTML=c
+        }
+    </script>
+ </body>
+ </html>--->
+ <!--<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
         .th1{
             color: blue;
@@ -33,7 +183,7 @@
     </script>
 
  </body>
- </html>
+ </html>-->
 <!---<!DOCTYPE html>
 <html lang="en">
 <head>
