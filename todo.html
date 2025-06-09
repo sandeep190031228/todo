@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO</title>
+</head>
+<body>
+    <input type="text"/>
+    <button onclick="add()">Add</button>
+    <button onclick="upd()" style="display: none;">Update</button>
+    <ol>
+    </ol>
+    <script>
+        let ipr=document.querySelector("input"),btr=document.querySelectorAll("button"),olr=document.querySelector("ol"),arr=[],edind=-1
+        let disp=()=>{
+            let s="",i
+            for(i=0;i<arr.length;i++){
+                s=s+ `<li>${arr[i]}<button onclick="edit(${i})">edit</button><button onclick="del(${i})">delete</button></li>`
+            }
+            olr.innerHTML=s
+        }
+        let add=()=>{
+            arr.push(ipr.value)
+            ipr.value=""
+            disp()
+        }
+        let upd=()=>{
+            arr[edind]=ipr.value
+            ipr.value=""
+            btr[0].style.display="inline-block"
+            btr[1].style.display="none"
+            disp()
+        }
+        function del(ind){
+            arr.splice(ind,1)
+            disp()
+        }
+        function edit(ind){
+            ipr.value=arr[ind]
+            btr[0].style.display="none"
+            btr[1].style.display="inline-block"
+            edind=ind
+        }
+    </script>
+</body>
+</html>

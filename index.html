@@ -6,7 +6,37 @@
     <title>Document</title>
  </head>
  <body>
-    
+    <div>00</div>
+    <button onclick="s()">start</button>
+    <button onclick="p()">pause</button>
+    <button onclick="r()">reset</button>
+    <script>
+        let dr=document.querySelector("div"),c=0,m=0,iid=-1
+        let inc=()=>{
+            c++
+            if(c==60){
+                m++
+                c=0
+            }
+            dr.innerHTML=(m<10?"0"+m:m)+":"+(c<10?"0"+c:c)
+        }
+        let s=()=>{
+            if (iid==-1){
+                iid=setInterval(inc,1000)
+            }
+        }
+        let p=()=>{
+            clearInterval(iid)
+            iid=-1
+        }
+        let r=()=>{
+            c=0
+            m=0
+            dr.innerHTML="00:00"
+            clearInterval(iid)
+            iid=-1
+        }
+    </script>
  </body>
  </html>
  <!---<!DOCTYPE html>

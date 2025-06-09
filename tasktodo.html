@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            outline: none;
+        }
+        .con{
+            width: 100%;
+            min-height: 100vh;
+            background-color: cadetblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap:20px
+        }
+        .form{
+            display: flex;
+            width: 40%;
+            flex-direction: column;
+            gap:5px;
+            padding: 20px 0px;
+            align-items: center;
+          
+
+        }
+        input 
+        {
+            border: none;
+            border-bottom: 2px solid blueviolet;
+            background: transparent;
+            color: white;
+            width: 80%;
+        }
+        ::placeholder{
+            color: white;
+        }
+        p{
+            color: chocolate;
+        }
+        textarea{
+         
+            min-height: 50px;
+            width: 80%;
+        }
+        select{
+            width: 80%;
+            
+        }
+        button{
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+        }
+        table{
+            width: 80%;
+        }
+        table,tr,th,td{
+            border: 2px solid gray;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="form">
+            <input type="text" placeholder="Enter uid"/>
+            <p>Provide Description of Task:</p>
+            <textarea>
+
+            </textarea>
+            <input type="date"/>
+            <select>
+                <option value="" selected disabled>---select dept---</option>
+                <option value="SE">Development</option>
+                <option value="ST">Software Testing</option>
+                <option value="Acc">Accounts</option>
+                <option value="HR">HR</option>
+            </select>
+            <button onclick="add()">AddTask</button>
+            <button style="display: none;">UpdateTask</button>
+
+
+        </div>
+        <table>
+
+        </table>
+    </div>
+    <script>
+        let ipr=document.querySelectorAll("input")
+        let sr=document.querySelector("select")
+        let tr=document.querySelector("textarea")
+        let btnr=document.querySelectorAll("button")
+        let tblr=document.querySelector("table")
+
+
+        let add=()=>{
+            let obj={"uid":ipr[0].value,"task":tr.value,"dept":sr.value,"dl":ipr[1].value}
+           let arr=localStorage.getItem("arr")
+           if(arr)
+           {
+            arr=JSON.parse(arr)
+             arr.push(obj)
+
+           }
+           else{
+            arr=[]
+            arr.push(obj)
+
+           }
+           localStorage.setItem("arr",JSON.stringify(arr))
+
+            ipr[0].value=""
+            ipr[1].value=""
+            sr.value=""
+            tr.value=""
+            disp()
+
+        }
+
+        function disp()
+        {
+            let arr=localStorage.getItem("arr")
+            if(arr)
+        {
+            arr=JSON.parse(arr)
+            let s="<tr><th>UID</th><th>Task</th><th>Dept</th><th>DL</th></tr>"
+            for(let i=0;i<arr.length;i++)
+        {
+            s=s+`<tr><td>${arr[i].uid}</td><td>${arr[i].task}</td><td>${arr[i].dept}</td><td>${arr[i].dl}</td></tr>`
+        }
+        tblr.innerHTML=s
+        }
+        else{
+            tblr.innerHTML="NO Tasks To Display"
+        }
+        }
+
+   disp()
+    </script>
+</body>
+</html>
